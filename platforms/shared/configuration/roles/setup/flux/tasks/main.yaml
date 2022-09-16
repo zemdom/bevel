@@ -20,22 +20,22 @@
   tags:
     - molecule-idempotence-notest
 
-- name: Install flux cli and bootstrap flux v2
-  shell: |
-    {{ bin_install_dir }}/flux bootstrap git \
-    --url={{ git_url }} \
-    --branch={{ git_branch }} \
-    --username={{ git_username }} \
-    --password={{ git_password }} \
-    --token-auth=true \
-    --path={{ git_path }} \
-    --namespace=flux-{{ network.env.type }}
-  when: git_protocol == "https"
-  environment:
-    KUBECONFIG: "{{ item.k8s.config_file }}"
-  tags:
-    - flux
-    - molecule-idempotence-notest
+# - name: Install flux cli and bootstrap flux v2
+#   shell: |
+#     {{ bin_install_dir }}/flux bootstrap git \
+#     --url={{ git_url }} \
+#     --branch={{ git_branch }} \
+#     --username={{ git_username }} \
+#     --password={{ git_password }} \
+#     --token-auth=true \
+#     --path={{ git_path }} \
+#     --namespace=flux-{{ network.env.type }}
+#   when: git_protocol == "https"
+#   environment:
+#     KUBECONFIG: "{{ item.k8s.config_file }}"
+#   tags:
+#     - flux
+#     - molecule-idempotence-notest
 
 - name: Install flux cli and bootstrap flux v2
   shell: |
